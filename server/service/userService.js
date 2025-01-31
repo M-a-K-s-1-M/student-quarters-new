@@ -16,10 +16,10 @@ class UserService {
         const hashPassword = await bcrypt.hash(password, 3);
         const activationLink = uuid.v4();
         const user = await prisma.user.create({ data: { email: email, password: hashPassword, } })
+
         // await mailService.sendActivationMail(email, `${process.env.API_URL}/api/activate/${activationLink}`);
 
         const tokens = tokenService.generateTokens({ id: user.id, email: user.email, isActivated: user.isActivated });
-        // await prisma.token.create({ data: { userId: user.id, refreshToken: tokens.refreshToken } });
         await tokenService.saveToken(user.id, tokens.refreshToken);
 
         return {
@@ -71,6 +71,40 @@ class UserService {
             data: { isActivated: true }
         })
     }
+
+    async refresh(refreshToken) {
+        if (!refreshToken) {
+            throw ApiError.UnauthorizedError();
+        }
+
+        const userData = tokenService.validateRefreshToken(refreshToken);
+        const tokenFromDb = await tokenService.findToken(refreshToken);
+
+        if (!userData || !tokenFromDb) {
+            throw ApiError.UnauthorizedError();
+        }
+
+        const user = prisma.user.findUnique({ where: { id: userData.id } })
+        const tokens = tokenService.generateTokens({ id: user.id, email: user.email, isActivated: user.isActivated });
+        await tokenService.saveToken(user.id, tokens.refreshToken);
+
+        return {
+            ...tokens,
+            user: {
+                id: user.id,
+                email: user.email,
+                isActivated: user.isActivated
+            }
+        }
+    }
+
+    async getAllUsers() {
+        const users = await prisma.user.findMany();
+        return users;
+    }
+
+
+
 }
 
 module.exports = new UserService();

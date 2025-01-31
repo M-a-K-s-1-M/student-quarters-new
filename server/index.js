@@ -18,6 +18,7 @@ const io = require('socket.io')(server, {
 });
 
 app.use(cors({
+    credentials: true,
     origin: '*', // Разрешает запросы со всех доменов
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Разрешенные HTTP методы
     allowedHeaders: ['Content-Type', 'Authorization'] // Разрешенные заголовки
