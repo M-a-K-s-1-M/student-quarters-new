@@ -8,21 +8,68 @@ datasource db {
 }
 
 model User {
-  id             Int     @id @default(autoincrement())
-  email          String  @unique
-  password       String
+  id       Int      @id @default(autoincrement())
+  username String
+  email    String   @unique
+  password String
+  role     String[]
+
   isActivated    Boolean @default(false) @map("is_activated")
   activationLink String? @map("activation_link")
-  token          Token?
+
+  token  Token?
+  Commit Commit[]
 
   @@map("users")
 }
 
+model Commit {
+  id          Int      @id @default(autoincrement())
+  description String
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  marker   Marker @relation(fields: [markerId], references: [id])
+  markerId Int    @unique @map("marker_id")
+
+  user   User @relation(fields: [userId], references: [id])
+  userId Int  @unique @map("user_id")
+
+  @@map("commits")
+}
+
 model Token {
   id           Int    @id @default(autoincrement())
-  refreshToken String @unique
+  refreshToken String @unique @map("refresh_token")
   user         User   @relation(fields: [userId], references: [id])
   userId       Int    @unique @map("user_id")
 
   @@map("tokens")
+}
+
+model Marker {
+  id          Int           @id @default(autoincrement())
+  coordinates Int[]
+  type        String?
+  title       String
+  description String
+  phoneNumber String?       @map("phone_nubmer")
+  address     String?
+  workingTime String?       @map("working_time")
+  vkUrl       String?       @map("vk_url")
+  websiteUrl  String?       @map("website_url")
+  charmanUrl  String?       @map("charman_url")
+  Commit      Commit[]
+  MakrerImage MarkerImage[]
+
+  @@map("markers")
+}
+
+model MarkerImage {
+  id  Int    @id @default(autoincrement())
+  url String
+
+  marker   Marker @relation(fields: [markerId], references: [id])
+  markerId Int    @unique @map("marker_id")
+
+  @@map("marker_images")
 }
