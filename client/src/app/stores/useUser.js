@@ -1,14 +1,9 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
-export const useUser = create((set) => ({
-    user: {},
-    isAuth: false,
+const useUser = create((set) => ({
+    isAuth: true,
 
-    setIsAuth: (boolean) => set(() => ({
-        isAuth: boolean,
-    })),
-
-    setUser: (user) => set(() => ({
-        user: user,
-    })),
+    setIsAuth: (b) => set({ isAuth: b })
 }))
+
+export default useUser;
