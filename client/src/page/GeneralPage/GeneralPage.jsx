@@ -1,14 +1,19 @@
 import useSidebar from "../../app/stores/useSidebar"
 import Sidebar from "../../widgets/Sidebar/Sidebar"
+import s from './GeneralPage.module.scss';
+import Feedback from '../../widgets/Feedback/Feedback';
+import Map from "../../widgets/Map/Map";
+
 
 export default function GeneralPage() {
-    const { isActiveSidebar } = useSidebar();
+    const { isActiveSidebar, activeTab } = useSidebar();
 
     return (
-        <main className={!isActiveSidebar ? "grid grid-cols-[80px_auto] duration-500 ease-out" : "grid grid-cols-[250px_auto] duration-500 ease-out"}>
+        <div className={`${s.general_page} ${isActiveSidebar && s.active}`}>
             <Sidebar />
-            <div >hello</div>
+            {activeTab === 'feedback' && <Feedback />}
+            {activeTab === 'map' && <Map />}
 
-        </main >
+        </div>
     )
 }

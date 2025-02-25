@@ -1,0 +1,10 @@
+@use '../../shared/styles/consts';
+
+.general_page {
+    display: grid;
+    grid-template-columns: consts.$sidebar_width auto;
+}
+
+.general_page.active {
+    grid-template-columns: consts.$sidebar_active_width auto;
+}

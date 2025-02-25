@@ -103,6 +103,13 @@ class UserService {
         return users;
     }
 
+    async getUser(id) {
+        const user = await prisma.findUnique({
+            where: { id }
+        })
+        return user;
+    }
+
 
 
 }
