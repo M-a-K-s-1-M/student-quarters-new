@@ -3,6 +3,7 @@ import Sidebar from "../../widgets/Sidebar/Sidebar"
 import s from './GeneralPage.module.scss';
 import Feedback from '../../widgets/Feedback/Feedback';
 import Map from "../../widgets/Map/Map";
+import Header from "../../widgets/Header/Header";
 
 
 export default function GeneralPage() {
@@ -11,8 +12,11 @@ export default function GeneralPage() {
     return (
         <div className={`${s.general_page} ${isActiveSidebar && s.active}`}>
             <Sidebar />
-            {activeTab === 'feedback' && <Feedback />}
-            {activeTab === 'map' && <Map />}
+            <div>
+                <Header />
+                {activeTab === 'feedback' && <Feedback />}
+                {activeTab === 'map' && <Map />}
+            </div>
 
         </div>
     )

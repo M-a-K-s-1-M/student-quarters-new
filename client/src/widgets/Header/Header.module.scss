@@ -1,0 +1,63 @@
+@use '../../shared/styles/consts';
+
+.header {
+
+    padding: 1.7rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid consts.$secondary_color;
+
+    .username {
+        font-size: 1.2rem;
+    }
+
+    // .btn {
+    //     outline: none;
+    //     background-color: inherit;
+    //     border: none;
+    //     font-family: 'Poppins', sans-serif;
+    //     font-size: 1rem;
+    //     padding: 0.3rem 1rem;
+    //     border: 1px solid white;
+    //     border-radius: 5px;
+
+    // }
+
+
+    .btn {
+        /* Variables */
+        --button_radius: 0.6rem;
+        --button_color: #000;
+        --button_outline_color: #fff;
+        font-size: 1rem;
+        font-weight: 400;
+        border: none;
+        cursor: pointer;
+        border-radius: var(--button_radius);
+        background: var(--button_outline_color);
+    }
+
+    span {
+        display: block;
+        box-sizing: border-box;
+        border: 1px solid var(--button_outline_color);
+        border-radius: var(--button_radius);
+        padding: 0.5rem 1.2rem;
+        background: var(--button_color);
+        color: var(--button_outline_color);
+        transform: translateY(-0.15rem);
+        transition: transform 0.1s ease;
+    }
+
+    .btn:hover span {
+        /* Pull the button upwards when hovered */
+        transform: translateY(-0.3rem);
+    }
+
+    .btn:active span {
+        /* Push the button downwards when pressed */
+        transform: translateY(0);
+    }
+}
