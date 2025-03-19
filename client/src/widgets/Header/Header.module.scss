@@ -2,10 +2,11 @@
 
 .header {
 
-    padding: 1.7rem 2.5rem;
+    padding: 1.3rem 2.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    column-gap: 5%;
 
     border-bottom: 1px solid consts.$secondary_color;
 

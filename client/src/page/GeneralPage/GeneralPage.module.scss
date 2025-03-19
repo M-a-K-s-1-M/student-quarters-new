@@ -1,6 +1,9 @@
 @use '../../shared/styles/consts';
 
 .general_page {
+    background-color: consts.$primary_color;
+    color: consts.$primary_font_color;
+
     display: grid;
     grid-template-columns: consts.$sidebar_width auto;
 }
