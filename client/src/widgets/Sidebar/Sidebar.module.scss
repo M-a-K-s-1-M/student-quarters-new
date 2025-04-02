@@ -1,217 +1,42 @@
 @use '../../shared/styles/consts';
 
-// * {
-//     color: consts.$primary_font_color;
-//     background-color: consts.$primary_color;
-// }
-
-.sidebar {
+.sidebar_container {
+    box-sizing: border-box;
     position: sticky;
-    height: 100vh;
     width: consts.$sidebar_width;
-    padding: .4rem .8rem;
-    transition: all 300ms ease;
+    height: 100vh;
     border-right: 1px solid consts.$secondary_color;
+    transition: all 300ms ease;
+    padding: 0.5rem 0.7rem;
 
-    font-size: 1.2rem;
+    .nav_link {
+        box-sizing: border-box;
+        padding: 0.7rem 1rem;
+        transition: all 300ms ease;
+        border-radius: .5rem;
+        cursor: pointer;
 
-    .top {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 1.6rem;
-
-
-        .logo {
-            display: flex;
-            align-items: end;
-            background-color: consts.$primary_color;
-            color: consts.$primary_font_color;
-
-
-            .logo_img {
-                width: 2rem;
-                background-color: consts.$primary_color;
-                margin-right: 5px;
-            }
-
-            .logo_title {
-                font-size: 1rem;
-                font-weight: 700;
-
-            }
-        }
-
-        .menu_icon {
-            transition: all 300ms ease;
-            font-size: 30px;
-            height: 50px;
-
-
-            &:hover {
-                transform: rotate(20deg);
-            }
+        &:hover {
+            transform: translate(-5px, -7px)
         }
     }
 
-    .nav_container {
+    .nav_link.active {
+        background-color: consts.$accent_color;
+    }
 
-        .nav_list {
+    .nav_icon {
+        font-size: 1.7rem;
 
-            .nav_item {
-                height: 50px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-bottom: 1.6rem;
-                padding: 0 .3rem;
-                cursor: pointer;
+        transition: all 300ms ease;
 
-
-                .link {
-                    display: flex;
-                    align-items: end;
-                    gap: .4rem;
-                    background-color: inherit;
-                    color: consts.$primary_font_color;
-
-
-                    .icon {
-                        font-size: 2rem;
-                        transition: all 300ms ease;
-                        background-color: inherit;
-                        border-radius: 30%;
-
-
-                        &:hover {
-                            cursor: pointer;
-                            transform: rotate(20deg);
-                        }
-                    }
-
-                    .title {
-                        background-color: inherit;
-
-                    }
-                }
-            }
-
-            .nav_item.active_tab {
-                background-color: consts.$accent_color;
-                border-radius: .5rem;
-            }
-        }
-
-        .nav_auth_list {
-
-            .nav_item {
-                margin-bottom: 1.6rem;
-                height: 50px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 0 .3rem;
-                cursor: pointer;
-
-                .link {
-                    display: flex;
-                    align-items: end;
-                    gap: .4rem;
-                    background-color: inherit;
-                    color: consts.$primary_font_color;
-
-
-
-                    .icon {
-                        font-size: 2rem;
-                        transition: all 300ms ease;
-                        background-color: inherit;
-                        border-radius: 30%;
-
-
-                        &:hover {
-                            cursor: pointer;
-                            transform: rotate(20deg);
-                        }
-                    }
-
-                    .title {
-                        background-color: inherit;
-
-                    }
-                }
-            }
-
-            .nav_item.active_tab {
-                background-color: consts.$accent_color;
-                border-radius: .5rem;
-            }
+        &:hover {
+            transform: rotate(20deg);
         }
     }
+
 }
 
-.sidebar.active {
+.sidebar_container.active {
     width: consts.$sidebar_active_width;
-
-    .top {
-        justify-content: space-between;
-
-        .logo {
-
-            .logo_img {}
-
-            .logo_title {}
-        }
-
-        .menu_icon {}
-    }
-
-    .nav_container {
-
-        .nav_list {
-
-            .nav_item {
-                height: 50px;
-                justify-content: start;
-                transition: all 300ms ease;
-
-                &:hover {
-                    transform: translate(-5px, -3px);
-                }
-
-                .link {
-                    justify-content: start;
-
-                    .icon {}
-
-                    .title {}
-                }
-            }
-
-            .nav_item.active_tab {}
-        }
-
-        .nav_auth_list {
-
-            .nav_item {
-                height: 50px;
-                justify-content: start;
-                transition: all 300ms ease;
-
-                &:hover {
-                    transform: translate(-5px, -3px);
-                }
-
-                .link {
-                    justify-content: start;
-
-                    .icon {}
-
-                    .title {}
-                }
-            }
-
-            .nav_item.acitve_tab {}
-        }
-    }
 }

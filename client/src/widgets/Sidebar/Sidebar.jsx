@@ -1,74 +1,69 @@
+import { Box, Burger, Flex, Image, Space, Stack, Text, Title } from '@mantine/core';
+import { FiMapPin } from "react-icons/fi";
+import { LuMessagesSquare } from "react-icons/lu";
+import { LuSettings } from "react-icons/lu";
+import { TbLogout2 } from "react-icons/tb";
 
-import ProfileIcon from '@mui/icons-material/AccountCircleOutlined';
-import MapIcon from '@mui/icons-material/MapOutlined';
-import FeedbackIcon from '@mui/icons-material/ForumOutlined';
-import LogoutIcon from '@mui/icons-material/LogoutOutlined';
-import SettingsIcon from '@mui/icons-material/SettingsOutlined';
-import MenuIcon from '@mui/icons-material/MenuOutlined';
 import useSidebar from '../../app/stores/useSidebar';
-import useUser from '../../app/stores/useUser';
 import s from './Sidebar.module.scss';
 
-export default function Sidebar() {
-    const { isActiveSidebar, setIsActiveSidebar, activeTab, setActiveTab } = useSidebar();
-    const { isAuth } = useUser();
 
+export default function Sidebar() {
+    const { isActiveSidebar, activeTab, setIsActiveSidebar, setActiveTab } = useSidebar();
 
     return (
-        <div className={`${s.sidebar} ${isActiveSidebar && s.active}`}>
-            <div className={`${s.top} ${isActiveSidebar && s.active}`}>
+        <Box component='div' className={`${s.sidebar_container} ${isActiveSidebar && s.active}`}>
+            <Flex justify='center' align='end' gap='0.2rem' px='.5rem' py='.3rem'>
                 {isActiveSidebar &&
-                    <button type='button' className={s.logo}>
-                        <img src="../../../public/logoGeneral.png" alt="logo" className={s.logo_img} />
-                        <span className={s.logo_title}>StudentQuarters</span>
-                    </button>
+                    <>
+                        <Image h='2rem' w='2rem' src='../../../public/logoWhite.png' />
+                        <Title order={2} size='1.2rem'>StudentQuarters</Title>
+                    </>
                 }
-                <MenuIcon className={s.menu_icon} onClick={() => setIsActiveSidebar(!isActiveSidebar)} />
-            </div>
+                <Burger opened={isActiveSidebar} onClick={() => setIsActiveSidebar(!isActiveSidebar)} color='white' size='md' align='end' />
+            </Flex>
+
+            <Space h='xl' />
+
+            <Stack align={isActiveSidebar ? 'stretch' : 'center'} gap='xl'>
+                <div className={`${s.nav_link} ${activeTab === 'map' && s.active}`} onClick={() => setActiveTab('map')}>
+                    <Flex gap='.3rem' align='center'>
+                        <FiMapPin className={s.nav_icon} />
+                        {isActiveSidebar && <>
+                            <Text size='1.5rem'>Карта</Text>
+                        </>}
+                    </Flex>
+                </div>
+
+                <div className={`${s.nav_link} ${activeTab === 'feedback' && s.active}`} onClick={() => setActiveTab('feedback')}>
+                    <Flex gap='.3rem' align='center' >
+                        <LuMessagesSquare className={s.nav_icon} />
+                        {isActiveSidebar && <>
+                            <Text size='1.5rem'>Отзывы</Text>
+                        </>}
+                    </Flex>
+                </div>
 
 
-            <div className={s.nav_container}>
-                <ul className={s.nav_list}>
-                    {isAuth &&
-                        <li className={`${s.nav_item} ${activeTab === 'profile' && s.active_tab}`} onClick={() => setActiveTab('profile')}>
-                            <a href="#" className={s.link} >
-                                <ProfileIcon className={s.icon} />
-                                {isActiveSidebar &&
-                                    <p className={s.title}>username</p>
-                                }
-                            </a>
-                        </li>
-                    }
-                    <li className={`${s.nav_item} ${activeTab === 'map' && s.active_tab}`} onClick={() => setActiveTab('map')}>
-                        <a href="#" className={s.link}>
-                            <MapIcon className={s.icon} />
-                            {isActiveSidebar && <span className={s.title}>Карта</span>}
-                        </a>
-                    </li>
-                    <li className={`${s.nav_item} ${activeTab === 'feedback' && s.active_tab}`} onClick={() => setActiveTab('feedback')}>
-                        <a href="#" className={s.link}>
-                            <FeedbackIcon className={s.icon} />
-                            {isActiveSidebar && <span className={s.title}>Отзывы</span>}
-                        </a>
-                    </li>
-                </ul>
-                {isAuth &&
-                    <ul className={s.nav_auth_list}>
-                        <li className={`${s.nav_item} ${activeTab === 'settings' && s.active_tab}`} onClick={() => setActiveTab('settings')}>
-                            <a href="#" className={s.link}>
-                                <SettingsIcon className={s.icon} />
-                                {isActiveSidebar && <span className={s.title}>Настройки</span>}
-                            </a>
-                        </li>
-                        <li className={`${s.nav_item} ${activeTab === 'logout' && s.active_tab}`} onClick={() => setActiveTab('logout')}>
-                            <a href="#" className={s.link}>
-                                <LogoutIcon className={s.icon} />
-                                {isActiveSidebar && <span className={s.title}>Выход</span>}
-                            </a>
-                        </li>
-                    </ul>
-                }
-            </div>
-        </div >
+                <div className={`${s.nav_link} ${activeTab === 'settings' && s.active}`} onClick={() => setActiveTab('settings')}>
+                    <Flex gap='.3rem' align='center' >
+                        <LuSettings className={s.nav_icon} />
+                        {isActiveSidebar && <>
+                            <Text size='1.5rem' >Настройки</Text>
+                        </>}
+                    </Flex>
+                </div>
+
+                <div className={`${s.nav_link} ${activeTab === 'logout' && s.active}`} onClick={() => setActiveTab('logout')}>
+                    <Flex gap='.3rem' align='center'>
+                        <TbLogout2 className={s.nav_icon} />
+                        {isActiveSidebar && <>
+                            <Text size='1.5rem'>Выход</Text>
+                        </>}
+                    </Flex>
+                </div>
+
+            </Stack>
+        </ Box >
     )
 }
