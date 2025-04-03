@@ -3,6 +3,9 @@
 .sidebar_container {
     box-sizing: border-box;
     position: sticky;
+    z-index: 100;
+    left: 0;
+    top: 0;
     width: consts.$sidebar_width;
     height: 100vh;
     border-right: 1px solid consts.$secondary_color;

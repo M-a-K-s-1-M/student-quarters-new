@@ -1,3 +1,7 @@
+import { ActionIcon, Avatar, Button, Divider, Flex, Group, Text, Title } from '@mantine/core';
+import { LuMessagesSquare } from "react-icons/lu";
+import { IoMdNotificationsOutline } from "react-icons/io";
+
 import useUser from '../../app/stores/useUser'
 import s from './Header.module.scss'
 
@@ -5,12 +9,46 @@ export default function Header() {
     const { isAuth, setIsAuth } = useUser();
 
     return (
-        <div className={s.header}>
-            {isAuth ? <p className={s.username}>Добро пожаловать username</p> : <p className={s.username}>Добро пожаловать Гость</p>}
+        <>
+            <Flex className={s.header} px='md' py='sm' justify='space-between'>
+                <Flex align='center' gap='xs'>
+                    {isAuth ? <>
+                        <Avatar key='username' name='username' size='md' bd='1px solid white' radius='xl' />
+                        <div>
+                            <Title size='1.2rem'>Username</Title>
+                            <p className={s.email}>test@test.ru</p>
+                        </div></>
+                        :
+                        <>
+                            <p>Добро пожаловать, <span style={{ fontWeight: '700' }}>Гость</span></p>
+                        </>
+                    }
+                </Flex>
 
-            {isAuth ? <button className={s.btn} onClick={() => setIsAuth(false)}><span>Выйти</span></button> : <button className={s.btn}><span>Войти</span></button>
-            }
+                <Group gap='md'>
+                    <ActionIcon variant='transparent'>
+                        <LuMessagesSquare className={s.icon_btn} />
+                    </ActionIcon>
 
-        </div >
+                    <ActionIcon variant='transparent'>
+                        <IoMdNotificationsOutline className={s.icon_btn} />
+                    </ActionIcon>
+
+
+
+                    {!isAuth ? <>
+                        <Divider orientation='vertical' color='#3C3C3C' />
+                        <Button variant='outline' color='white' onClick={() => setIsAuth(true)}>
+                            Войти
+                        </Button>
+                    </>
+                        :
+                        <>
+                            <Divider orientation='vertical' color='#3C3C3C' />
+                            <Button variant='outline' color='white' onClick={() => setIsAuth(false)}>Выйти</Button>
+                        </>}
+                </Group>
+            </Flex>
+        </>
     )
 }
