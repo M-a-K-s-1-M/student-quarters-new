@@ -4,9 +4,11 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 
 import useUser from '../../app/stores/useUser'
 import s from './Header.module.scss'
+import useSidebar from '../../app/stores/useSidebar';
 
 export default function Header() {
     const { isAuth, setIsAuth } = useUser();
+    const { setActiveTab } = useSidebar();
 
     return (
         <>
@@ -26,7 +28,7 @@ export default function Header() {
                 </Flex>
 
                 <Group gap='md'>
-                    <ActionIcon variant='transparent'>
+                    <ActionIcon variant='transparent' onClick={() => setActiveTab('feedback')}>
                         <LuMessagesSquare className={s.icon_btn} />
                     </ActionIcon>
 

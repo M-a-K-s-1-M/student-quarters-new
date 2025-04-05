@@ -11,7 +11,7 @@ import useUser from '../../app/stores/useUser';
 
 export default function Sidebar() {
     const { isActiveSidebar, activeTab, setIsActiveSidebar, setActiveTab } = useSidebar();
-    const { isAuth } = useUser();
+    const { isAuth, setIsAuth } = useUser();
 
     return (
         <Box component='div' className={`${s.sidebar_container} ${isActiveSidebar && s.active}`}>
@@ -57,7 +57,7 @@ export default function Sidebar() {
                             </Flex>
                         </div>
 
-                        <div className={`${s.nav_link} ${activeTab === 'logout' && s.active}`} onClick={() => setActiveTab('logout')}>
+                        <div className={`${s.nav_link} ${activeTab === 'logout' && s.active}`} onClick={() => { setIsAuth(false); setActiveTab('map') }} >
                             <Flex gap='.3rem' align='center'>
                                 <TbLogout2 className={s.nav_icon} />
                                 {isActiveSidebar && <>
