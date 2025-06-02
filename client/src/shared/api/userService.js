@@ -1,4 +1,4 @@
-import $api from "../api/index";
+import $api from "./index";
 
 export default class UserService {
     static fetchUsers() {

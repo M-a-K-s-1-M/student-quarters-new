@@ -1,4 +1,4 @@
-import $api from "../api/index";
+import $api from "../../../shared/api/index";
 
 export default class AuthService {
     static async login(email, password) {

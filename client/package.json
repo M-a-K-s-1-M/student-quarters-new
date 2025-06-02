@@ -14,6 +14,7 @@
     "@mantine/core": "^7.17.3",
     "@mantine/hooks": "^7.17.3",
     "axios": "^1.7.9",
+    "fs-extra": "^11.3.0",
     "leaflet": "^1.9.4",
     "react": "^19.0.0-rc.1",
     "react-dom": "^19.0.0-rc.1",
