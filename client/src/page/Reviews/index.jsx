@@ -1,7 +1,10 @@
-import React from 'react'
+import useSidebar from '../../widgets/Sidebar/model/useSidebar';
+import './Reviews.scss';
 
 export default function Reviews() {
+    const { isOpen } = useSidebar();
+
     return (
-        <div>Reviews</div>
+        <div className={`reviews ${isOpen && 'reviews--active-sidebar'}`}>Reviews</div>
     )
 }

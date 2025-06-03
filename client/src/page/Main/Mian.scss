@@ -1,0 +1,9 @@
+@use '../../shared/ui/styles/consts';
+
+.main {
+    margin-left: consts.$sidebar-collapsed-width;
+
+    &--active-sidebar {
+        margin-left: consts.$sidebar-width;
+    }
+}

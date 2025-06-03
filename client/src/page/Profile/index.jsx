@@ -1,7 +1,9 @@
-import React from 'react'
+import useSidebar from '../../widgets/Sidebar/model/useSidebar';
+import './Profile.scss';
 
 export default function Profile() {
+    const { isOpen } = useSidebar();
     return (
-        <div>Profile</div>
+        <div className={`profile ${isOpen && 'profile--active-sidebar'}`}>Profile</div>
     )
 }

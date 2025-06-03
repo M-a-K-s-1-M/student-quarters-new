@@ -19,6 +19,7 @@ function App() {
           <Route path="about" element={<About />} />
 
           <Route path="*" element={<Navigate to='/' replace />} />
+
         </Route>
 
       </Routes>
