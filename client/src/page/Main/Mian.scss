@@ -2,8 +2,41 @@
 
 .main {
     margin-left: consts.$sidebar-collapsed-width;
+    padding: 1.25rem 1.875rem;
+    flex: 1;
+    transition: margin-left consts.$transition-speed;
+    min-height: 100vh;
+    box-sizing: border-box;
+    width: calc(100vw - consts.$sidebar-collapsed-width);
+
+    &--active-sidebar {
+        width: calc(100vw - consts.$sidebar-width);
+    }
+
+
+    @media (min-width: 1400px) {
+        padding: 1.25rem 2.5rem;
+    }
+
+    @media (max-width: 1024px) {
+        padding: 0.9375rem 1.25rem;
+    }
+
+    @media (max-width: 768px) {
+        padding: 0.625rem 0.9375rem;
+        margin-left: 0 !important;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    @media (max-width: 480px) {
+        padding: 0.5rem 0.625rem;
+    }
 
     &--active-sidebar {
         margin-left: consts.$sidebar-width;
     }
+
+
+
 }
