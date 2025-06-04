@@ -1,3 +1,4 @@
+import MapControls from '../../features/MapControls/ui';
 import PopularDormitories from '../../features/PopularDormitories/ui';
 import SearchDormitory from '../../features/SearchDormitory/ui';
 import useSidebar from '../../widgets/Sidebar/model/useSidebar';
@@ -9,7 +10,10 @@ export default function Main() {
     return (
         <div className={`main ${isOpen && 'main--active-sidebar'}`}>
             <SearchDormitory />
+
             <PopularDormitories />
+
+            <MapControls />
         </div>
     )
 }
