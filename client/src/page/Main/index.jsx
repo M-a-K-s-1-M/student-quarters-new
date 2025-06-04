@@ -1,3 +1,4 @@
+import PopularDormitories from '../../features/PopularDormitories/ui';
 import SearchDormitory from '../../features/SearchDormitory/ui';
 import useSidebar from '../../widgets/Sidebar/model/useSidebar';
 import './Mian.scss';
@@ -8,6 +9,7 @@ export default function Main() {
     return (
         <div className={`main ${isOpen && 'main--active-sidebar'}`}>
             <SearchDormitory />
+            <PopularDormitories />
         </div>
     )
 }
