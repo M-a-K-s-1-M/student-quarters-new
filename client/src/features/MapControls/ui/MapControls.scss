@@ -8,6 +8,8 @@
     box-shadow: consts.$shadow;
     border: 1px solid consts.$border-color;
 
+    position: relative;
+
     @media (max-width: 480px) {
         padding: 0.9375rem;
     }
@@ -39,6 +41,7 @@
             display: flex;
             align-items: center;
             gap: 0.625rem;
+            z-index: 1000;
 
             @media (max-width: 768px) {
                 width: 100%;

@@ -1,6 +1,7 @@
 import MapControls from '../../features/MapControls/ui';
 import PopularDormitories from '../../features/PopularDormitories/ui';
 import SearchDormitory from '../../features/SearchDormitory/ui';
+import MainMapLayout from '../../widgets/MainMapLayout';
 import useSidebar from '../../widgets/Sidebar/model/useSidebar';
 import './Mian.scss';
 
@@ -14,6 +15,8 @@ export default function Main() {
             <PopularDormitories />
 
             <MapControls />
+
+            <MainMapLayout />
         </div>
     )
 }
