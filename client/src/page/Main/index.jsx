@@ -1,8 +1,9 @@
-import MapControls from '../../features/MapControls/ui';
-import PopularDormitories from '../../features/PopularDormitories/ui';
-import SearchDormitory from '../../features/SearchDormitory/ui';
-import MainMapLayout from '../../widgets/MainMapLayout';
-import useSidebar from '../../widgets/Sidebar/model/useSidebar';
+import { MapControls } from '../../widgets/MapControls/index';
+import { PopularDormList } from '../../widgets/PopularDormitories';
+import { SearchDormitory } from '../../features/SearchDormitory/index';
+
+import { MainMapLayout } from '../../widgets/MainMapLayout';
+import { useSidebar } from '../../widgets/Sidebar/model';
 import './Mian.scss';
 
 export default function Main() {
@@ -12,7 +13,7 @@ export default function Main() {
         <div className={`main ${isOpen && 'main--active-sidebar'}`}>
             <SearchDormitory />
 
-            <PopularDormitories />
+            <PopularDormList />
 
             <MapControls />
 

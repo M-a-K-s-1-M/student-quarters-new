@@ -1,0 +1,1 @@
+export { SearchDormitory } from './SearchDormitory';

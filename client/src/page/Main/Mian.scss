@@ -4,15 +4,30 @@
     margin-left: consts.$sidebar-collapsed-width;
     padding: 1.25rem 1.875rem;
     flex: 1;
-    transition: margin-left consts.$transition-speed ease-in-out;
+    transition: all consts.$transition-speed ease-in-out;
+
     min-height: 100vh;
     box-sizing: border-box;
     width: calc(100vw - consts.$sidebar-collapsed-width);
 
+    animation: 0.3s ease-in-out 0s 1 normal none running fadeIn;
+
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+
     &--active-sidebar {
         width: calc(100vw - consts.$sidebar-width);
     }
-
 
     @media (min-width: 1400px) {
         padding: 1.25rem 2.5rem;
@@ -36,7 +51,4 @@
     &--active-sidebar {
         margin-left: consts.$sidebar-width;
     }
-
-
-
 }

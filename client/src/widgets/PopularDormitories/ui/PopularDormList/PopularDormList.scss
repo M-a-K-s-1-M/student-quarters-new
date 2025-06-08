@@ -1,0 +1,65 @@
+@use '../../../../shared/ui/styles/consts';
+
+.popular-dormitories {
+    margin-bottom: 1.875rem;
+
+    &__header {
+        margin-bottom: 1.5625rem;
+        text-align: center;
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.625rem;
+            color: consts.$text-color;
+            position: relative;
+            display: inline-block;
+
+            @media (max-width: 480px) {
+                font-size: 1.5rem;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 3.75rem;
+                height: 0.3rem;
+                background: linear-gradient(to right, consts.$primary-color, consts.$primary-light);
+                border-radius: 0.3rem;
+            }
+        }
+
+        p {
+            color: consts.$text-light;
+            font-size: 1.1rem;
+
+            @media (max-width: 480px) {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    &__featured {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.875rem;
+
+        @media (min-width: 1400px) {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.1875rem;
+        }
+
+        @media (max-width: 1024px) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+
+    }
+}

@@ -1,4 +1,4 @@
-import useSidebar from '../../widgets/Sidebar/model/useSidebar';
+import { useSidebar } from '../../widgets/Sidebar/model';
 import './About.scss';
 
 export default function About() {
