@@ -1,23 +1,19 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './MainMap.scss';
-import { Tooltip } from '@mantine/core';
 import { useDorms } from '../../../../entities/Dormitory';
 import { useState } from 'react';
 
-import { GoStarFill } from "react-icons/go";
-import { FiStar } from "react-icons/fi";
 import { FaStar } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaMap } from "react-icons/fa";
+import { AddDormFavorite } from '../../../../features/AddDormFavorite';
 
 
 
 export function MainMap() {
     const position = [56.8519, 60.6122];
     const { dorms } = useDorms();
-
-    const [isFavorite, setIsFavorite] = useState(false);
 
     return (
         <div className='main-map'>
@@ -43,22 +39,9 @@ export function MainMap() {
                                         <img src='#' alt={dormMarker.name} />
 
                                         <div
-                                            className={`main-map__popup-container__image__favorite ${isFavorite && 'main-map__popup-container__image__favorite--active'}`}
-                                            onClick={(e) => {
-                                                e.stopPropagation(); // Важно: замените preventDefault на stopPropagation
-                                                e.nativeEvent.stopImmediatePropagation();
-                                                setIsFavorite(!isFavorite)
-                                            }}
+                                            className={`main-map__popup-container__image__favorite`}
                                         >
-                                            {isFavorite ?
-                                                <Tooltip label='Добавить в избранное'>
-                                                    <GoStarFill />
-                                                </Tooltip>
-                                                :
-                                                <Tooltip label='Добавить в избранное'>
-                                                    <FiStar />
-                                                </Tooltip>
-                                            }
+                                            <AddDormFavorite />
                                         </div>
 
                                         <div className='main-map__popup-container__image__dorm-evaluation'>

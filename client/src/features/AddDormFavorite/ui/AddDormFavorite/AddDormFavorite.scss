@@ -1,0 +1,13 @@
+.add-dorm-favorite {
+
+    color: #f1c40f;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+    &:hover {
+        transform: scale(1.2);
+    }
+
+}

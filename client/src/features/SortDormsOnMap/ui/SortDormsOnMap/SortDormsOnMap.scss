@@ -1,0 +1,17 @@
+@use '../../../../shared/ui/styles/consts';
+
+.sort-dorms-on-map {
+    padding: 1rem 1.25rem;
+    background-color: consts.$light-bg;
+    border-bottom: 1px solid consts.$border-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 480px) {
+        padding: 0.75rem 0.9375rem;
+        flex-direction: column;
+        gap: 0.625rem;
+        align-items: flex-start;
+    }
+}

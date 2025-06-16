@@ -1,41 +1,23 @@
-import { useState } from 'react';
 import './CardDormitory.scss';
 import { FaStar } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaMap } from "react-icons/fa";
-import { Tooltip } from '@mantine/core';
-import { GoStarFill } from "react-icons/go";
-import { FiStar } from "react-icons/fi";
+import { AddDormFavorite } from '../../../../features/AddDormFavorite';
 
 export function CardDormitory({ data }) {
-    const [isFavorite, setIsFavorite] = useState(false);
     return (
         <div className={`dormitory-card ${data.id === 1 && 'dormitory-card--featured'}`}>
             <div className='dormitory-card__image'>
                 <img src='#' alt={data.name} />
 
                 <div
-                    className={`dormitory-card__image__favorite ${isFavorite && 'dormitory-card__image__favorite--active'}`}
-                    onClick={(e) => {
-                        e.stopPropagation(); // Важно: замените preventDefault на stopPropagation
-                        e.nativeEvent.stopImmediatePropagation();
-                        setIsFavorite(!isFavorite)
-                    }}
+                    className={`dormitory-card__image__favorite`}
                 >
-                    {isFavorite ?
-                        <Tooltip label='Добавить в избранное'>
-                            <GoStarFill />
-                        </Tooltip>
-                        :
-                        <Tooltip label='Добавить в избранное'>
-                            <FiStar />
-                        </Tooltip>
-                    }
+                    <AddDormFavorite />
                 </div>
 
                 <div className='dormitory-card__image__dorm-evaluation'>
                     <FaStar className='dormitory-card__image__dorm-evaluation__icon' />
-
                     <span>{data.rating}</span>
                 </div>
             </div>

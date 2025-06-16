@@ -1,0 +1,41 @@
+@use '../../../../shared/ui/styles/consts';
+
+.dorms-filter-list {
+    height: calc(100vh - 240px);
+    background-color: consts.$card-bg;
+    border-radius: consts.$border-radius;
+    box-shadow: consts.$shadow;
+    border: 1px solid consts.$border-color;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 1400px) {
+        height: 700px;
+    }
+
+    @media (max-width: 768px) {
+        height: 50vh;
+    }
+
+    @media (max-width: 480px) {
+        height: 300px;
+    }
+
+    @media (max-width: 320px) {
+        height: 250px;
+    }
+
+    &__cards {
+        overflow-y: auto;
+        padding: 1.25rem;
+        flex: 1;
+
+
+
+        @media (max-width: 480px) {
+            padding: 0.9375rem;
+        }
+
+    }
+}
