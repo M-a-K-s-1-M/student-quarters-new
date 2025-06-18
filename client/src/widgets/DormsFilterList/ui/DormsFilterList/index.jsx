@@ -10,9 +10,9 @@ export function DormsFilterList() {
             <div className='dorms-filter-list__cards'>
                 {dorms.map((dorm) => {
                     return (
-                        <>
+                        <div key={dorm.id} >
                             <CardDormitory data={dorm} />
-                        </>
+                        </div>
                     )
                 })
                 }

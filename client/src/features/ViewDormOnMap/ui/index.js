@@ -1,0 +1,1 @@
+export { ViewDormOnMapBtn } from './ViewDormOnMapBtn';

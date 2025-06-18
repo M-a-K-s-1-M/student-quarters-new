@@ -25,7 +25,7 @@ export const useDorms = create((set) => ({
         id: 2,
         university: "УрГУПС",
         name: "Общежитие УрГУПС Главный",
-        rating: 4.2,
+        rating: 3.2,
         address: "ул. Колмогорова, 66, Екатеринбург",
         price: 1200,
         priceUnit: "месяц",

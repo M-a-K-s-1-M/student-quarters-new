@@ -1,0 +1,25 @@
+@use '../../../../shared/ui/styles/consts';
+
+.navigate-dorm-reviews-btn {
+    background-color: consts.$light-bg;
+    color: consts.$text-color;
+    padding: 0.75rem 1.25rem;
+    border-radius: consts.$border-radius;
+    border: 1px solid consts.$border-color;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: consts.$border-color;
+    }
+
+    @media (max-width: 480px) {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+}

@@ -1,19 +1,20 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './MainMap.scss';
-import { useDorms } from '../../../../entities/Dormitory';
-import { useState } from 'react';
+import { ModalCardDormitory, useDorms } from '../../../../entities/Dormitory';
 
 import { FaStar } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaMap } from "react-icons/fa";
 import { AddDormFavorite } from '../../../../features/AddDormFavorite';
+import { useModalDormitory } from '../../../../entities/Dormitory/model/useModalDormitory';
 
 
 
 export function MainMap() {
     const position = [56.8519, 60.6122];
     const { dorms } = useDorms();
+    const { openModal } = useModalDormitory();
 
     return (
         <div className='main-map'>
@@ -68,7 +69,7 @@ export function MainMap() {
                                                 <span className='main-map__popup-container__content__footer__dorm-price__price'>{dormMarker.price} ₽</span>
                                                 <span className='main-map__popup-container__content__footer__dorm-price__period'> /{dormMarker.priceUnit}</span>
                                             </div>
-                                            <button className='main-map__popup-container__content__footer__view-map-btn'>
+                                            <button className='main-map__popup-container__content__footer__view-map-btn' onClick={() => openModal(dormMarker)}>
                                                 <FaMap className='main-map__popup-container__content__footer__view-map-btn__icon' />
                                                 Подробнее
                                             </button>
