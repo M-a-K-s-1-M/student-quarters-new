@@ -1,6 +1,6 @@
 import './PopularDormList.scss';
-import { CardPopularDormitory } from '../CardPopularDormitory/index';
-import { usePopularDormitories } from '../../../../entities/Dormitory';
+import { CardPopularDormitory, usePopularDormitories } from '../../../../entities/Dormitory';
+
 
 export function PopularDormList() {
     const { dataDormitories } = usePopularDormitories();

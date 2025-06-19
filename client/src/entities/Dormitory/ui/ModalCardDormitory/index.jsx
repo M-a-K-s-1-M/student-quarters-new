@@ -1,5 +1,5 @@
 import './ModalCardDormitory.scss'
-import { Modal, Space } from '@mantine/core';
+import { Modal } from '@mantine/core';
 import { useModalDormitory } from '../../model';
 
 import { GoStar } from "react-icons/go";
@@ -9,7 +9,7 @@ import { FaRubleSign } from "react-icons/fa";
 import { FaBuilding } from "react-icons/fa6";
 import { FaComment } from "react-icons/fa6";
 
-import { ViewDormOnMapBtn } from '../../../../features/ViewDormOnMap';
+import { ViewDormOnMapBtnModal } from '../../../../features/ViewDormOnMap';
 import { NavigateDormReviewsBtn } from '../../../../features/NavigateDormReviews';
 import { AddDormFavoriteBtn } from '../../../../features/AddDormFavorite';
 
@@ -118,7 +118,7 @@ export function ModalCardDormitory() {
 
                         <div className='modal-card-dormitory__content__actions'>
                             <AddDormFavoriteBtn />
-                            <ViewDormOnMapBtn />
+                            <ViewDormOnMapBtnModal dormId={dormitory.id} />
                             <NavigateDormReviewsBtn />
                         </div>
 

@@ -2,7 +2,8 @@ import './CardPopularDormitory.scss';
 import { FaStar } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaMap } from "react-icons/fa";
-import { ModalCardDormitory, useModalDormitory } from '../../../../entities/Dormitory';
+import { ModalCardDormitory, useModalDormitory } from '../..';
+import { ViewDormOnMapBtn } from '../../../../features/ViewDormOnMap';
 
 export function CardPopularDormitory({ data }) {
     const { openModal } = useModalDormitory();
@@ -36,10 +37,13 @@ export function CardPopularDormitory({ data }) {
                             <span className='dormitory-card__content__footer__dorm-price__price'>{data.price} ₽</span>
                             <span className='dormitory-card__content__footer__dorm-price__period'> /{data.priceUnit}</span>
                         </div>
-                        <button className='dormitory-card__content__footer__view-map-btn' onClick={() => openModal(data)}>
+
+                        <ViewDormOnMapBtn dormId={data.id} />
+
+                        {/* <button className='dormitory-card__content__footer__view-map-btn' onClick={() => openModal(data)}>
                             <FaMap className='dormitory-card__content__footer__view-map-btn__icon' />
                             На карте
-                        </button>
+                        </button> */}
                     </div>
                 </div>
             </div>

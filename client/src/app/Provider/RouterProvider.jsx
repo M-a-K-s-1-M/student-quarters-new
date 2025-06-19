@@ -8,24 +8,22 @@ import About from '../../page/About/index'
 export default function RouterProvider() {
     return (
         <>
-            <Router>
 
-                <Routes>
+            <Routes>
 
-                    <Route path="/*" element={<GeneralLayout />}>
+                <Route path="/*" element={<GeneralLayout />}>
 
-                        <Route index element={<Main />} />
-                        <Route path="reviews" element={<Reviews />} />
-                        <Route path="profile" element={<Profile />} />
-                        <Route path="about" element={<About />} />
+                    <Route index element={<Main />} />
+                    <Route path="reviews" element={<Reviews />} />
+                    <Route path="profile" element={<Profile />} />
+                    <Route path="about" element={<About />} />
 
-                        <Route path="*" element={<Navigate to='/' replace />} />
+                    <Route path="*" element={<Navigate to='/' replace />} />
 
-                    </Route>
+                </Route>
 
-                </Routes>
+            </Routes>
 
-            </Router>
 
         </>
     )

@@ -3,6 +3,7 @@ import { FaStar } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaMap } from "react-icons/fa";
 import { AddDormFavorite } from '../../../../features/AddDormFavorite';
+import { ViewDormOnMapBtn } from '../../../../features/ViewDormOnMap';
 
 export function CardDormitory({ data }) {
     return (
@@ -40,10 +41,8 @@ export function CardDormitory({ data }) {
                         <span className='dormitory-card__content__footer__dorm-price__price'>{data.price} ₽</span>
                         <span className='dormitory-card__content__footer__dorm-price__period'> /{data.priceUnit}</span>
                     </div>
-                    <button className='dormitory-card__content__footer__view-map-btn'>
-                        <FaMap className='dormitory-card__content__footer__view-map-btn__icon' />
-                        На карте
-                    </button>
+
+                    <ViewDormOnMapBtn dormId={data.id} />
                 </div>
             </div>
         </div>

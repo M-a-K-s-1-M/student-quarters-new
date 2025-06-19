@@ -1,23 +1,51 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './MainMap.scss';
-import { ModalCardDormitory, useDorms } from '../../../../entities/Dormitory';
+import { CardDormitoryOnMap, useDorms } from '../../../../entities/Dormitory';
 
 import { FaStar } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaMap } from "react-icons/fa";
+
 import { AddDormFavorite } from '../../../../features/AddDormFavorite';
 import { useModalDormitory } from '../../../../entities/Dormitory/model/useModalDormitory';
+
+import { useSearchParams } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react';
+import { Card } from '@mantine/core';
 
 
 
 export function MainMap() {
     const position = [56.8519, 60.6122];
     const { dorms } = useDorms();
-    const { openModal } = useModalDormitory();
+    const [searchParams] = useSearchParams();
+    const dormIdToOpen = Number(searchParams.get('dormId'));
+
+    const markerRefs = useRef({});
+
+    const mapRef = useRef(null);
+
+    const map = useRef();
+
+    useEffect(() => {
+        setTimeout(() => {
+            map.invalidateSize();
+        }, 200);
+    }, [map]);
+
+    useEffect(() => {
+        if (dormIdToOpen && markerRefs.current[dormIdToOpen]) {
+            markerRefs.current[dormIdToOpen].openPopup();
+
+            if (mapRef.current) {
+                mapRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    }, [dormIdToOpen, dorms]);
 
     return (
-        <div className='main-map'>
+        <div className='main-map' ref={mapRef}>
             <MapContainer
                 center={position}
                 zoom={12}
@@ -33,60 +61,19 @@ export function MainMap() {
                     const arrayLocation = [dormMarker.location.lat, dormMarker.location.lng];
 
                     return (
-                        <Marker position={arrayLocation} key={dormMarker.id}>
+                        <Marker
+                            position={arrayLocation}
+                            key={dormMarker.id}
+                            ref={ref => {
+                                if (ref) markerRefs.current[dormMarker.id] = ref;
+                            }}
+                        >
                             <Popup>
-                                <div className='main-map__popup-container'>
-                                    <div className='main-map__popup-container__image'>
-                                        <img src='#' alt={dormMarker.name} />
-
-                                        <div
-                                            className={`main-map__popup-container__image__favorite`}
-                                        >
-                                            <AddDormFavorite />
-                                        </div>
-
-                                        <div className='main-map__popup-container__image__dorm-evaluation'>
-                                            <FaStar className='main-map__popup-container__image__dorm-evaluation__icon' />
-                                            <span>{dormMarker.rating}</span>
-                                        </div>
-                                    </div>
-
-                                    <div className='main-map__popup-container__content'>
-                                        <h3>{dormMarker.name}</h3>
-                                        <p className='main-map__popup-container__content__address'>
-                                            <FaMapMarkerAlt className='main-map__popup-container__content__address__icon' />
-                                            {dormMarker.address}
-                                        </p>
-                                        <div className='main-map__popup-container__content__features'>
-                                            {dormMarker.amenities.map((feature, id) => {
-                                                return (
-                                                    <span className='main-map__popup-container__content__features__feature' key={id}>{feature}</span>
-                                                )
-                                            })}
-                                        </div>
-                                        <div className='main-map__popup-container__content__footer'>
-                                            <div className='main-map__popup-container__content__footer__dorm-price'>
-                                                <span className='main-map__popup-container__content__footer__dorm-price__price'>{dormMarker.price} ₽</span>
-                                                <span className='main-map__popup-container__content__footer__dorm-price__period'> /{dormMarker.priceUnit}</span>
-                                            </div>
-                                            <button className='main-map__popup-container__content__footer__view-map-btn' onClick={() => openModal(dormMarker)}>
-                                                <FaMap className='main-map__popup-container__content__footer__view-map-btn__icon' />
-                                                Подробнее
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                                <CardDormitoryOnMap dormitory={dormMarker} />
                             </Popup>
                         </Marker>
                     )
                 })}
-
-                {/* <Marker position={position}>
-                    <Popup>
-                        Привет, это маркер! <br /> Кликните для информации.
-                    </Popup>
-                </Marker> */}
-
 
             </MapContainer>
         </div>
