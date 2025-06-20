@@ -1,0 +1,26 @@
+@use '../../../../shared/ui/styles/consts';
+
+.search-dormitory-input {
+    position: relative;
+    margin-bottom: 0.9625rem;
+
+    &__icon {
+        position: absolute;
+        left: 0.9625rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: consts.$text-light;
+        font-size: 1.2rem;
+    }
+
+    input {
+        width: 100%;
+        padding: 0.9625rem;
+        padding-left: 2.8125rem;
+        border-radius: consts.$border-radius;
+        border: 1px solid consts.$border-color;
+        font-size: 1rem;
+        font-family: 'Inter', sans-serif;
+        transition: all 0.3s;
+    }
+}

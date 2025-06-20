@@ -27,6 +27,8 @@
 
     &--active-sidebar {
         width: calc(100vw - consts.$sidebar-width);
+        margin-left: consts.$sidebar-width;
+
     }
 
     @media (min-width: 1400px) {
@@ -40,7 +42,7 @@
     @media (max-width: 768px) {
         padding: 0.625rem 0.9375rem;
         margin-left: 0 !important;
-        width: 100%;
+        width: 100vw;
         box-sizing: border-box;
     }
 
@@ -48,7 +50,4 @@
         padding: 0.5rem 0.625rem;
     }
 
-    &--active-sidebar {
-        margin-left: consts.$sidebar-width;
-    }
 }

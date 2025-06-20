@@ -1,0 +1,22 @@
+@use '../../shared/ui/styles/consts';
+
+.reviews-page-header {
+    background-color: consts.$card-bg;
+    border-radius: consts.$border-radius;
+    box-shadow: consts.$shadow;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: consts.$dark-bg;
+
+        @media (max-width: 768px) {
+            font-size: 1.4rem;
+        }
+    }
+
+    &__search-wrapper {}
+}

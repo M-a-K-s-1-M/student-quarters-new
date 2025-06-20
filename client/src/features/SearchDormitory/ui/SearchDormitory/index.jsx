@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './SearchDormitory.scss';
-import { FaSearch } from "react-icons/fa";
+import { SearchDormitoryInput } from '../SearchDormitoryInput';
 
 export function SearchDormitory() {
     const [activeFitler, setActiveFilter] = useState('all');
@@ -15,10 +15,8 @@ export function SearchDormitory() {
                 <p>Лучшие студенческие общежития в Москве с отзывами, рейтингами и подробной информацией</p>
 
                 <div className='search-dormitory__content__panel'>
-                    <div className='search-dormitory__content__panel__input-container'>
-                        <FaSearch className='search-dormitory__content__panel__input-container__icon' />
-                        <input type="text" placeholder="Поиск по названию или адресу..." />
-                    </div>
+
+                    <SearchDormitoryInput />
 
                     <div className="search-dormitory__content__panel__filters">
                         <button

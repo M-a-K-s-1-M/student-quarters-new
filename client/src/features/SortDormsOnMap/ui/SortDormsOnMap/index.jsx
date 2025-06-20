@@ -10,7 +10,7 @@ export function SortDormsOnMap() {
                 Найдено общежитий: <span>{dormsCoutn}</span>
             </h3>
             <Select
-                data={['По рейтингу', 'По цене', 'По названию']}
+                data={['По рейтингу', 'По цене', 'По названию', 'Избранные']}
                 defaultValue={'По рейтингу'}
                 className='sort-dorms-on-map__select'
             />
