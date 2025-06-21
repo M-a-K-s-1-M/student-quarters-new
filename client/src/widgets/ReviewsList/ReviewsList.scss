@@ -1,0 +1,38 @@
+@use '../../shared/ui/styles/consts';
+
+.reviews-list {
+    background-color: consts.$card-bg;
+    border-radius: consts.$border-radius;
+    box-shadow: consts.$shadow;
+    border: 1px solid consts.$border-color;
+    padding: 1.25rem;
+    height: calc(100vh - 240px);
+    overflow-y: auto;
+
+    @media (max-width: 768px) {
+        height: auto;
+        max-height: 500px;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.875rem;
+        border-bottom: 1px solid consts.$border-color;
+
+        &__title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: consts.$text-color;
+        }
+
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+}

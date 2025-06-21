@@ -1,0 +1,10 @@
+.reviews-dorms-layout {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}

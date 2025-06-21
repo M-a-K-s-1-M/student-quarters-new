@@ -1,0 +1,15 @@
+.rating-mini-star-calculate {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.1875rem 0.375rem;
+    border-radius: 0.625rem;
+    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.1875rem;
+
+    &__icon {
+        color: #f1c40f;
+        font-size: 0.7rem;
+    }
+}

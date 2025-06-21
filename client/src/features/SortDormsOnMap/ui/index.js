@@ -1,1 +1,0 @@
-export { SortDormsOnMap } from './SortDormsOnMap';

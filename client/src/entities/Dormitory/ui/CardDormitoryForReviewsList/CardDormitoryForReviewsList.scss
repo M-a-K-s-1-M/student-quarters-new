@@ -1,0 +1,110 @@
+@use '../../../../shared/ui/styles/consts';
+
+.card-dormitory-for-reviews-list {
+    display: flex;
+    margin-bottom: 0.9375rem;
+    cursor: pointer;
+    background-color: white;
+    border-radius: consts.$border-radius;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    // transition: all 0.2s ease;
+    border: 1px solid consts.$border-color;
+    box-shadow: consts.$shadow;
+
+    &:hover {
+        transform: translateY(-0.625rem);
+        box-shadow: consts.$shadow-lg;
+    }
+
+    @media (max-width: 768px) {
+        max-width: 100%;
+    }
+
+    @media (max-width: 480px) {
+        height: auto;
+        flex-direction: column;
+    }
+
+    &--active {
+        background-color: rgba(67, 97, 238, 0.05);
+        border-left: 0.25rem solid consts.$primary-color;
+    }
+
+    &__dorm-img-small {
+        width: 100px;
+        height: 120px;
+        position: relative;
+
+        @media (max-width: 480px) {
+            width: 100%;
+            height: 120px;
+            border-radius: consts.$border-radius consts.$border-radius 0 0;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &__badge-wrapper {
+            position: absolute;
+            top: 0.3125rem;
+            right: 0.3125rem;
+        }
+    }
+
+    &__content-compact {
+        flex: 1;
+        padding: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &__title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.3125rem;
+            color: consts.$text-color;
+        }
+
+        &__address {
+            margin-bottom: 0.9375rem;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: consts.$text-light;
+        }
+
+        &__info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.3125rem;
+
+
+            &__price {
+                font-size: 1rem;
+                font-weight: 600;
+                color: consts.$primary-color;
+
+                span {
+                    font-size: 0.8rem;
+                    font-weight: normal;
+                    color: consts.$text-light;
+                }
+            }
+
+            &__cnt-reviews {
+                font-size: 0.85rem;
+                color: consts.$text-light;
+                display: flex;
+                align-items: center;
+                gap: 0.3175rem;
+            }
+        }
+    }
+
+}

@@ -2,8 +2,6 @@ import './ModalCardDormitory.scss'
 import { Modal } from '@mantine/core';
 import { useModalDormitory } from '../../model';
 
-import { GoStar } from "react-icons/go";
-import { GoStarFill } from "react-icons/go";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaRubleSign } from "react-icons/fa";
 import { FaBuilding } from "react-icons/fa6";
@@ -12,11 +10,12 @@ import { FaComment } from "react-icons/fa6";
 import { ViewDormOnMapBtnModal } from '../../../../features/ViewDormOnMap';
 import { NavigateDormReviewsBtn } from '../../../../features/NavigateDormReviews';
 import { AddDormFavoriteBtn } from '../../../../features/AddDormFavorite';
+import { RatingDormInStarsCalculate } from '../../../../features/RatingDormInStarsCalculate';
+
 
 
 export function ModalCardDormitory() {
     const { isOpen, closeModal, dormitory } = useModalDormitory();
-    const starFilled = Math.floor(dormitory?.rating || 0);
 
     return (
         <Modal
@@ -40,7 +39,7 @@ export function ModalCardDormitory() {
 
                         <h2>{dormitory.name}</h2>
 
-                        <div className='modal-card-dormitory__header__rating'>
+                        {/* <div className='modal-card-dormitory__header__rating'>
                             <div className='modal-card-dormitory__header__rating__stars'>
                                 {[...Array(5)].map((_, i) =>
                                     (i < starFilled) ?
@@ -50,7 +49,9 @@ export function ModalCardDormitory() {
                                 }
                             </div>
                             <span className='modal-card-dormitory__header__rating__count'>{dormitory.rating}</span>
-                        </div>
+                        </div> */}
+
+                        <RatingDormInStarsCalculate rating={dormitory.rating} />
 
                     </div>
 

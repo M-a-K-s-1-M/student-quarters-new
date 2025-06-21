@@ -1,7 +1,7 @@
 import { Select } from '@mantine/core';
 import { useDorms } from '../../../../entities/Dormitory';
-import './SortDormsOnMap.scss';
-export function SortDormsOnMap() {
+import './FilterDormsSelect.scss';
+export function FilterDormsSelect() {
     const { dorms } = useDorms();
     const dormsCoutn = dorms.length;
     return (

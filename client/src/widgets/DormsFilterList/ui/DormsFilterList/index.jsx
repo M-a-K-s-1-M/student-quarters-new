@@ -1,17 +1,24 @@
 import './DormsFilterList.scss';
-import { SortDormsOnMap } from "../../../../features/SortDormsOnMap";
-import { CardDormitory, useDorms } from "../../../../entities/Dormitory";
+import { FilterDormsSelect } from "../../../../features/FilterDorms";
+import { CardDormitory, CardDormitoryForReviewsList, useDorms } from "../../../../entities/Dormitory";
+import { useLocation } from 'react-router-dom';
 
 export function DormsFilterList() {
     const { dorms } = useDorms();
+
+    const location = useLocation();
+
     return (
         <div className="dorms-filter-list">
-            <SortDormsOnMap />
+            <FilterDormsSelect />
             <div className='dorms-filter-list__cards'>
                 {dorms.map((dorm) => {
                     return (
                         <div key={dorm.id} >
-                            <CardDormitory data={dorm} />
+                            {location.pathname === '/'
+                                ? <CardDormitory dormitory={dorm} />
+                                : <CardDormitoryForReviewsList dormitory={dorm} />
+                            }
                         </div>
                     )
                 })

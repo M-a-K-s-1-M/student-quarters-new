@@ -1,0 +1,37 @@
+@use '../../../../shared/ui/styles/consts';
+
+.review-card {
+    background-color: consts.$card-bg;
+    border-radius: consts.$border-radius;
+    box-shadow: consts.$shadow;
+    padding: 1.25rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid consts.$border-color;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: consts.$shadow-lg;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+    }
+
+    &__content {
+        margin-bottom: 0.875rem;
+        color: consts.$text-color;
+        line-height: 1.6;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem;
+        color: consts.$text-light;
+        padding-top: 0.625rem;
+        border-top: 1px solid consts.$border-color;
+    }
+}

@@ -3,16 +3,8 @@ import 'leaflet/dist/leaflet.css';
 import './MainMap.scss';
 import { CardDormitoryOnMap, useDorms } from '../../../../entities/Dormitory';
 
-import { FaStar } from "react-icons/fa";
-import { FaMapMarkerAlt } from "react-icons/fa";
-import { FaMap } from "react-icons/fa";
-
-import { AddDormFavorite } from '../../../../features/AddDormFavorite';
-import { useModalDormitory } from '../../../../entities/Dormitory/model/useModalDormitory';
-
 import { useSearchParams } from 'react-router-dom'
-import { useEffect, useRef, useState } from 'react';
-import { Card } from '@mantine/core';
+import { useEffect, useRef } from 'react';
 
 
 
