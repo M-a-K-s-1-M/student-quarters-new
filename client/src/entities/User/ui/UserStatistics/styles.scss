@@ -1,0 +1,36 @@
+.user-statistics {
+    display: flex;
+    gap: 1.875rem;
+    list-style: none;
+    flex-wrap: wrap;
+
+    &__item {
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.15);
+        padding: 0.5rem 1.25rem;
+        border-radius: 0.75rem;
+        min-width: 5rem;
+
+        @media (max-width: 320px) {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+        }
+
+        &__value {
+            display: block;
+            font-weight: 600;
+            font-size: 1.5rem;
+
+            @media (max-width: 480px) {
+                font-size: 1.2rem;
+            }
+
+            @media (max-width: 320px) {
+                font-size: 1.1rem;
+            }
+        }
+    }
+}

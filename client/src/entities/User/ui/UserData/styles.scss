@@ -1,0 +1,30 @@
+.user-data {
+    margin-bottom: 1.25rem;
+
+    &__username {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+
+        @media (max-width: 768px) {
+            font-size: 1.6rem;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 1.4rem;
+        }
+
+    }
+
+    &__email {
+        font-size: 1rem;
+        margin-bottom: 0.375rem;
+        display: flex;
+        align-items: center;
+
+        &__icon {
+            margin-right: 0.625rem;
+            width: 1.125rem;
+        }
+    }
+}
