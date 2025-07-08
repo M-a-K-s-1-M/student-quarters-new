@@ -1,0 +1,37 @@
+@use '../../shared/ui/styles/consts';
+
+.tabs-profile {
+
+    .mantine-Tabs-list {}
+
+    .mantine-Tabs-tab {
+        padding: 1rem 2rem;
+
+        @media (max-width: 768px) {
+            padding: 0.75rem 0.9375rem;
+        }
+
+        @media (max-width: 480px) {
+            padding: 0.625rem 0.75rem;
+        }
+
+    }
+
+    .mantine-Tabs-tabLabel {
+        font-size: 1rem;
+        color: consts.$text-light;
+
+        @media (max-width: 768px) {
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 0.85rem;
+        }
+    }
+
+    &__icon {
+        font-size: 1rem;
+        color: consts.$text-light;
+    }
+}

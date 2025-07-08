@@ -1,0 +1,67 @@
+@use '../../shared/ui/styles/consts';
+
+.favorites-dorms-profile {
+    padding: 1.875rem;
+
+    @media (max-width: 480px) {
+        padding: 1.25rem 0.9375rem;
+    }
+
+    @media (max-width: 320px) {
+        padding: 0.9375rem 0.625rem;
+    }
+
+
+    &__title {
+        margin-bottom: 1.5rem;
+        font-size: 1.3rem;
+        color: consts.$text-color;
+        position: relative;
+        font-weight: 600;
+        padding-bottom: 0.75rem;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, consts.$primary-color, consts.$primary-light);
+            border-radius: 3px;
+        }
+    }
+
+    &__content-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 1.25rem;
+
+
+        @media (min-width: 1400px) {
+            grid-template-columns: 35% 65%;
+        }
+
+        @media (max-width: 1024px) {
+            grid-template-columns: 45% 55%;
+        }
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            gap: 0.9375rem;
+        }
+
+        &__list {
+            list-style: none;
+            padding-bottom: 1rem;
+            gap: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            height: calc(100vh - 240px);
+        }
+
+        // &__map-favorites-dorms-wrapper {}
+    }
+
+}

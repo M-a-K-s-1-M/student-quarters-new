@@ -7,13 +7,13 @@ import { ReviewsUserProfile } from '../ReviewsUserProfile'
 
 export function TabsProfile() {
     return (
-        <Tabs radius="md" defaultValue="settings">
-            <Tabs.List>
-                <Tabs.Tab value="settings" leftSection={<FaCog size={12} />}>Настройки</Tabs.Tab>
+        <Tabs radius="md" defaultValue="settings" className='tabs-profile'>
+            <Tabs.List >
+                <Tabs.Tab value="settings" leftSection={<FaCog className='tabs-profile__icon' />}>Настройки</Tabs.Tab>
 
-                <Tabs.Tab value="favorites" leftSection={<FaBookmark size={12} />}>Избранное</Tabs.Tab>
+                <Tabs.Tab value="favorites" leftSection={<FaBookmark className='tabs-profile__icon' />}>Избранное</Tabs.Tab>
 
-                <Tabs.Tab value="reviews" leftSection={<FaComment size={12} />}>Мои отзывы</Tabs.Tab>
+                <Tabs.Tab value="reviews" leftSection={<FaComment className='tabs-profile__icon' />}>Мои отзывы</Tabs.Tab>
             </Tabs.List>
 
             <Tabs.Panel value="settings">
@@ -27,6 +27,6 @@ export function TabsProfile() {
             <Tabs.Panel value="reviews">
                 <ReviewsUserProfile />
             </Tabs.Panel>
-        </Tabs>
+        </Tabs >
     )
 }
